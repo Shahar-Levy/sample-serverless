@@ -1,0 +1,6 @@
+name: i-dont-know-the-format-of-this-file
+serverless:
+  - thingy
+  - other-thingy
+  - thingo
+  - thingus
