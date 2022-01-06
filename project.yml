@@ -1,6 +1,31 @@
-name: i-dont-know-the-format-of-this-file
-serverless:
-  - thingy
-  - other-thingy
-  - thingo
-  - thingus
+packages:
+  - name: my-package-name
+    actions:
+      - name: my-action-name
+        # parameters not allowed
+        parameters: 
+          ordinary-parameter-name: value
+        # environment not allowed
+        environment:
+          environment-parameter-name: value
+        # annotations not allowed
+        annotations:
+          annotation-key1: annotation-value1
+        # binary not allowed
+        binary: true
+        # main entry point not allowed
+        main: main-entry-point
+        # runtime not allowed
+        runtime: runtime
+        # web not allowed
+        web: true
+        # limits not allowed
+        limits:
+          # timeout in milliseconds
+          timeout: 10
+          # memory in megabytes
+          memory: 10
+          # logs in kilobytes
+          logs: 10
+
+
