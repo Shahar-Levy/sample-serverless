@@ -1,31 +1,27 @@
+cleanNamespace: true
 packages:
   - name: my-package-name
+    environment:
+      - beeperino
+      - booperino
     actions:
       - name: my-action-name
-        # parameters not allowed
-        parameters: 
-          ordinary-parameter-name: value
-        # environment not allowed
-        environment:
-          environment-parameter-name: value
-        # annotations not allowed
         annotations:
-          annotation-key1: annotation-value1
-        # binary not allowed
-        binary: true
-        # main entry point not allowed
-        main: main-entry-point
-        # runtime not allowed
-        runtime: runtime
-        # web not allowed
-        web: true
-        # limits not allowed
-        limits:
-          # timeout in milliseconds
-          timeout: 10
-          # memory in megabytes
-          memory: 10
-          # logs in kilobytes
-          logs: 10
-
-
+          - provide-api-key: abc123
+          - whisk-auth annotation: abc123
+        clean: true
+        sequence: 
+          - utils/split
+          - utils/sort
+        webSecure: true
+        shared: true
+        # these are web content configs
+        bucket:
+          - prefixPath: "prefix"
+          - strip: 5
+          - mainPageSuffic: "suffix"
+          - notFoundPage: "page"
+          - clean: true
+          - useCache: true
+          - remoteBuild: true
+          - localBuild: true
